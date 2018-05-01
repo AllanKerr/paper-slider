@@ -382,6 +382,12 @@ Custom property | Description | Default
         on-change="_changeValue"
         on-keydown="_inputKeyDown"
         no-label-float>
+        <template is="dom-if" if="[[prefix]]">
+          <div slot="prefix">[[prefix]]</div>
+        </template>
+        <template is="dom-if" if="[[suffix]]">
+          <div slot="suffix">[[suffix]]</div>
+        </template>
       </paper-input>
     </template>
   </template>
@@ -465,6 +471,16 @@ Custom property | Description | Default
             return [];
           }
         },
+
+        /**
+         * The prefix for the input shown for the editable slider value.
+         */
+        prefix: {type: String },
+
+        /**
+         * The suffix for the input shown for the editable slider value.
+         */
+        suffix: {type: String },
       },
 
       observers: [
